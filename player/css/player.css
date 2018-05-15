@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html,body,main {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    background-color: #d8d4c8;
+}
+
+.player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f3efe3;
+    box-shadow: 0 0 1px 1px #000;
+}
+
+.show {
+    margin-left:10px;
+    margin-right: 10px; 
+}
+
+.pic {
+    margin-top: 10px;
+    width: 420px;
+    height: 360px;
+}
+
+.pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    position: relative;
+    margin-top: 20px;
+    background-color: #f3efe3;
+}
+
+.time {
+    position: absolute;
+    top: 0;
+    left: 35px;
+    font-size: 60px;
+    color: #fac0b2;
+}
+
+.sing {
+    margin-left: 200px;
+}
+
+.singer {
+    font-size: 26px;
+}
+
+.song {
+    font-size: 25px;
+    color: #cac6ba;
+}
+
+.scoll {
+    margin-top: 30px;
+    height: 30px;
+    background-color: #e19484;
+    cursor: pointer;
+}
+
+.scoll-now {
+    width: 0;
+    height: 100%;
+    background-color: #ffaa96;
+}
+
+.control {
+    position: relative;
+    height: 70px;
+    background-color: #5a4450;
+}
+
+.prev-btn,.play-btn,.next-btn,.mode-order,.fav,.more {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-image: url(https://gtms03.alicdn.com/tps/i3/T1bMh.FxNXXXb_r3IF-72-730.png);
+    background-repeat: no-repeat;
+}
+
+.prev-btn {
+    top: 25px;
+    left: 91px;
+    background-position: 0 -90px;
+}
+
+.play-btn {
+    top: 25px;
+    left: 38px;
+    background-position: 0 0;
+}
+
+.next-btn {
+    top: 25px;
+    left: 144px;
+    background-position: 0 -60px;
+}
+
+.mode-order {
+    top: 21px;
+    left: 300px;
+    background-position: 4px -174px;
+}
+
+.fav {
+    width: 18px;
+    height: 18px;
+    top: 28px;
+    left: 360px;
+    background-position: 0 -241px;
+}
+
+.more {
+    width: 18px;
+    height: 18px;
+    top: 27px;
+    left: 410px;
+    background-position: 0 -277px;
+}

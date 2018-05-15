@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    filter: blur(10px);
+}
+.weather {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.position {
+    position: relative;
+    width: 770px;
+    height: 360px;
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+.position  .date {
+    text-align: center;
+}
+
+.position .city {
+    text-align: center;
+}
+
+.position .detail {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 60px;
+}
+.week-weather {
+    width: 770px;
+    height: 120px;
+}
+
+.week-list li{
+    float: left;
+    width: 110px;
+    text-align: center;
+}
+
+.week-list::after {
+    content: "";
+    display: block;
+    clear: both;
+}

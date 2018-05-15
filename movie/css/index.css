@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+html,body,main {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+main>section {
+    display: none;
+    height: calc(100% - 45px);
+    padding: 10px;
+    background-color: #fff;
+    overflow: scroll;
+}
+
+main>section:first-child {
+    display: block;
+}
+
+.item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.item .cover,.item .cover img {
+    width: 70px;
+}
+
+.item .cover {
+    position: relative;
+}
+.item .cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.item .detail {
+    margin-left: 70px;
+    padding: 10px;
+}
+
+.itema .detail h2 {
+    font-size: 16px;
+}
+
+.item .detail .extra {
+    color: #999;
+    margin-top: 4px;
+}
+
+.item .detail .score {
+    color: #ff5722;
+}
+
+.loading {
+    display: none;
+    padding-top: 10px;
+    text-align: center;
+}
+
+@keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg);  }
+}
+
+.search {
+    height: calc(100% - 45px);
+}
+
+section>.search-area {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+}
+
+section>.search-area>input {
+    padding: 8px;
+    width: calc(100% - 50px);
+    background-color: #eee;
+    border: none;
+    border-radius: 2px;
+    box-shadow: none;
+    outline: none;
+}
+
+section>.search-area>.btn {
+    position: absolute;
+    right: 0;
+    padding: 8px 10px;
+    background: #ff5722;
+    color: #fff;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.loading>.iconfont {
+    display: inline-block;
+    animation: 1s rotate linear infinite;   
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    display: flex;
+}
+
+footer>div {
+    flex: 1;
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+    padding-top: 6px;
+}
+
+footer>.active {
+    color: #ff5722;
+}
+
+footer>div>span {
+    display: block;
+}
