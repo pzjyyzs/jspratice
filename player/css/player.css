@@ -29,18 +29,20 @@ main {
 .show {
     margin-left:10px;
     margin-right: 10px; 
+    max-width: 420px;
 }
 
 .pic {
     margin-top: 10px;
     width: 420px;
     height: 360px;
+    background-image: url(https://pic.xiami.net/images/artistpic/19/107819/1371829234_kL8W.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-.pic img {
-    width: 100%;
-    height: 100%;
-}
+
 
 .info {
     position: relative;
@@ -51,7 +53,7 @@ main {
 .time {
     position: absolute;
     top: 0;
-    left: 35px;
+    left: 25px;
     font-size: 60px;
     color: #fac0b2;
 }
@@ -82,13 +84,31 @@ main {
     background-color: #ffaa96;
 }
 
-.control {
+.bottom {
     position: relative;
-    height: 70px;
     background-color: #5a4450;
 }
 
-.prev-btn,.play-btn,.next-btn,.mode-order,.fav,.more {
+.play-controls {
+    height: 70px;
+    padding-right: 140px;
+}
+
+.track-controls {
+    position: absolute;
+    top: 0;
+    left: 140px;
+    width: 300px;
+    height: 70px;
+}
+
+.word {
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    transform: translate(0,-50%);
+}
+.btn,.mode-order,.fav,.more {
     position: absolute;
     display: block;
     width: 30px;
@@ -98,42 +118,29 @@ main {
     background-repeat: no-repeat;
 }
 
-.prev-btn {
-    top: 25px;
-    left: 91px;
-    background-position: 0 -90px;
-}
 
 .play-btn {
-    top: 25px;
-    left: 38px;
+    top: 20px;
+    left: 10px;
     background-position: 0 0;
 }
 
-.next-btn {
-    top: 25px;
-    left: 144px;
-    background-position: 0 -60px;
+.pause-btn {
+    top: 20px;
+    left: 10px;
+    background-position: 0 -30px;
 }
 
-.mode-order {
-    top: 21px;
-    left: 300px;
-    background-position: 4px -174px;
+.next-btn {
+    top: 20px;
+    left: 80px;
+    background-position: 0 -60px;
 }
 
 .fav {
     width: 18px;
     height: 18px;
-    top: 28px;
-    left: 360px;
-    background-position: 0 -241px;
-}
-
-.more {
-    width: 18px;
-    height: 18px;
     top: 27px;
-    left: 410px;
-    background-position: 0 -277px;
+    right: 10px;
+    background-position: 0 -241px;
 }
