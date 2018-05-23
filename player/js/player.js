@@ -53,7 +53,7 @@ const App = {
         })
     },
     getSong(callback) {
-        this.getData('http://api.jirengu.com/fm/getSong.php', callback)
+        this.getData('https://api.jirengu.com/fm/getSong.php', callback)
     },
     renderData(data) {
         let _this = this
@@ -68,7 +68,7 @@ const App = {
         console.log(songObj.song[0])
     },
     getLrc(sid, callback) {
-        this.getData('http://jirenguapi.applinzi.com/fm/getLyric.php?&sid='+sid ,callback)
+        this.getData('https://jirenguapi.applinzi.com/fm/getLyric.php?&sid='+sid ,callback)
     },
     renderWord(data){
         let dataObj = JSON.parse(data)
