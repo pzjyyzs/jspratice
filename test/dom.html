@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/dom.css">
+</head>
+<body>
+    <div class="slider-wrap">
+        <div class="slider">
+            <ul class="slider-list">
+                <li class="slider-list-item active">
+                    <a href="">
+                        <img src="img/1.jpg" alt="">
+                    </a>
+                </li>
+                <li class="slider-list-item">
+                    <a href="">
+                        <img src="img/2.jpg" alt="">
+                    </a>
+                </li>
+                <li class="slider-list-item">
+                    <a href="">
+                        <img src="img/3.jpg" alt="">
+                    </a>
+                </li>
+                <li class="slider-list-item">
+                    <a href="">
+                        <img src="img/4.jpg" alt="">
+                    </a>
+                </li>
+                <li class="slider-list-item">
+                    <a href="">
+                        <img src="img/5.jpg" alt="">
+                    </a>
+                </li>
+                <li class="slider-list-item">
+                    <a href="">
+                        <img src="img/6.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="thumbs">
+            <ul class="thumbs-list">
+                <li class="thumbs-list-item cur">
+                    <a href="javascript:;">
+                        <img src="img/1.jpg" alt="">
+                    </a>
+                </li>
+                <li class="thumbs-list-item">
+                    <a href="javascript:;">
+                        <img src="img/2.jpg" alt="">
+                    </a>
+                </li>
+                <li class="thumbs-list-item">
+                    <a href="javascript:;">
+                        <img src="img/3.jpg" alt="">
+                    </a>
+                </li>
+                <li class="thumbs-list-item">
+                    <a href="javascript:;">
+                        <img src="img/4.jpg" alt="">
+                    </a>
+                </li>
+                <li class="thumbs-list-item">
+                    <a href="javascript:;">
+                        <img src="img/5.jpg" alt="">
+                    </a>
+                </li>
+                <li class="thumbs-list-item">
+                    <a href="javascript:;">
+                        <img src="img/6.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/dom.js" type="text/javascript"></script>
+    <script type='text/javascript'>
+    var slider = new Slider({
+        sliderItem: 'slider-list-item',
+        thumbItem: 'thumbs-list-item'
+    })
+    </script>
+</body>
+</html>
