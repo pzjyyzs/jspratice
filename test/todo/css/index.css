@@ -1,0 +1,112 @@
+.wrap {
+    position: relative;
+    margin: 50px auto;
+    width: 500px;
+    height: 500px;
+    box-shadow: 0 0 5px #999;
+    border-radius: 10px;
+    overflow: hidden;
+}
+/* css类名选择是从右到左 */
+.list-hd {
+    position: absolute; /* 绝对定位会让一个块级元素变为内联块 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+}
+
+.list-hd a {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+}
+
+.input-wrap {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.input-wrap .input-bd {
+    float: left;
+    padding: 5px 10px 5px 5px;
+    width: 410px;
+    height: 100%;
+}
+
+.input-wrap .input-bd input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.input-wrap .btn-bd {
+    float: left;
+    padding: 5px 10px 5px 5px;
+    width: 90px;
+    height: 100%;
+}
+
+.input-wrap .btn-bd button {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.list-wrap {
+    margin-top: 44px;
+    height: 456px;
+    overflow: auto;
+}
+
+.list-wrap .item {
+    position: relative;
+    height: 50px;
+}
+
+.list-wrap .item:nth-child(odd),
+.list-wrap .item:hover {
+    background-color: #eee;
+}
+
+.list-wrap .item.active {
+    background-color: #dff0d8;
+}
+
+.list-wrap .item .item-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    line-height: 50px;
+    text-indent: 15px;
+}
+
+.list-wrap .item .btn-group {
+    margin-left: 400px;
+    height: 100%;
+    line-height: 50px;
+}
+
+.list-wrap .item .btn-group a {
+    margin-left: 15px;
+}
+
+.list-wrap .item .btn-group .edit-btn {
+    color:#00ff00;
+}
+
+.list-wrap .item .btn-group .remove-btn {
+    color: #ff0000;
+}
