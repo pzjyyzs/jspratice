@@ -1,0 +1,40 @@
+.container {
+    margin-top: 44px;
+}
+
+.bk-list .list-item {
+    position: relative;
+    height: 150px;
+    border-bottom: 1px solid #ddd;
+}
+
+.bk-list .list-item .item-lk {
+    display: block;
+    height: 100%;
+}
+
+.bk-list .list-item .bk-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    height: 150px;
+}
+
+.bk-list .list-item .bk-info {
+    margin-left: 118px;
+    height: 100%;
+    color: #424242;
+}
+
+.bk-list .list-item .bk-info h2,
+.bk-list .list-item .bk-info p {
+    margin-top: 15px;
+}
+
+.bk-list .list-item .bk-info .intro {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+}

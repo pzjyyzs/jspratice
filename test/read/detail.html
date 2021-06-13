@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type='text/css' href="./css/reset.css" />
+    <link rel="stylesheet" type='text/css' href="./css/common.css" />
+    <link rel="stylesheet" type='text/css' href="./css/detail.css" />
+</head>
+<body>
+    <div class="list-hd">
+        <h2>列表</h2>
+    </div>
+    <div class="container">
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+        a<br />
+
+        a<br />a<br />a<br />a<br />a<br />
+        a<br />a<br />a<br />a<br />a<br />
+        a<br />a<br />a<br />a<br />
+        a<br />a<br />a<br />a<br />a<br />
+        a<br />a<br />a<br />a<br />a<br />
+        a<br />a<br />a<br />a<br />a<br />
+    </div>
+    <a href="javascript:;" class="round s-top-btn"></a>
+    <a href="javascript:;" class="round play-btn"></a>
+    <script type='text/javascript' src="./js/utils.js"></script>
+    <script type='text/javascript' src='./js/auto_reader.js'></script>
+    <script type='text/javascript'>
+        var autoReader = new AutoReader({
+            playBtn: document.getElementsByClassName('play-btn')[0],
+            sTopBtn: document.getElementsByClassName('s-top-btn')[0]
+        });
+    </script>
+</body>
+</html>

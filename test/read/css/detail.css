@@ -1,0 +1,30 @@
+.container {
+    padding: 44px 15px 15px 15px;
+    line-height: 25px;
+}
+
+.round {
+    display: block;
+    position: fixed;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #000;
+    opacity: .6;
+}
+
+.s-top-btn {
+    display: none;
+    bottom: 100px;
+    background-color: #ff0000;
+}
+
+.play-btn {
+    bottom: 25px;
+    background: #ff0000;
+}
+
+.round:hover {
+    opacity: 1;
+}
