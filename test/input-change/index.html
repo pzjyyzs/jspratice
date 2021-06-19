@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type='text/css'>
+        input {
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+        }
+
+        .input-wrap {
+            position: relative;
+            width: 250px;
+            height: 35px;
+            margin: 50px auto;
+        }
+
+        .input-wrap .auto-kw {
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            z-index: -1;
+            font-size: 14px;
+            color: #989898;
+        }
+
+        .input-wrap .auto-kw.show {
+            display: block;
+            color: #989898;
+        }
+
+        .input-wrap .auto-kw.hide {
+            display: none;
+            color: #666;
+        }
+
+        .input-wrap .search-input {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: 1px solid #ddd;
+            text-indent: 5px;
+            color: #424242;
+        }
+    </style>
+</head>
+<body>
+    <div class='input-wrap'>
+        <div class='auto-kw' id='J_autoKw'>advice</div>
+        <input type="text" id='J_search_kw' class='search-input'>
+    </div>
+
+    <div style='display: none;' id='J_recomKw'>
+        ["test1", "test2", "test3", "test4", "test5"]
+    </div>
+
+    <script type='text/javascript' src='./js/utils.js'></script>
+    <script type='text/javascript' src='./js/index.js'></script>
+    <script type='text/javascript'>
+
+    </script>
+</body>
+</html>
