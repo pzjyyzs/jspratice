@@ -157,7 +157,6 @@ function elemParent(node, n) {
     return node;
 }
 
-// 拖拽
 function elemDrag(elem) {
     var x,
         y;
