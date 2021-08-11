@@ -1,6 +1,6 @@
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { resolve } = require('path')
+const { resolve } = require('path');
 
 module.exports = {
     mode: 'development',
@@ -9,9 +9,9 @@ module.exports = {
         minimize: false
     },
     entry: {
-        index: resolve(__dirname, './src/js/index.js'),
-        detail: resolve(__dirname, './src/js/detail.js'),
-        collections: resolve(__dirname, './src/js/collections.js')
+        index: resolve(__dirname, './src/js/Index.js'),
+        list: resolve(__dirname, './src/js/List.js'),
+        detail: resolve(__dirname, './src/js/Detail.js')
     },
     output: {
         path: resolve(__dirname, './dist'),
@@ -64,15 +64,19 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|gif|ico|woff|eot|svg|ttf)$/i,
-                loaders: 'url-loader?limit=1024name=img/[name]-[hash:16].[ext]'
+                loaders: [
+                    'url-loader?limit=1024name=img/[name]-[hash:16].[ext]',
+                   /*  'image-webpack-loader' */
+                ]
             }
         ]
     },
     plugins: [
+       /*  new uglify(), */
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: resolve(__dirname, 'src/index.html'),
-            title: '新闻头条',
+            title: '官网',
             chunks: ['index'],
             chunksSortMode: 'manual',
             excludeChunks: ['node_modules'],
@@ -85,7 +89,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'detail.html',
             template: resolve(__dirname, 'src/detail.html'),
-            title: '新闻详情',
+            title: '官网',
             chunks: ['detail'],
             chunksSortMode: 'manual',
             excludeChunks: ['node_modules'],
@@ -96,10 +100,10 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            filename: 'collections.html',
-            template: resolve(__dirname, 'src/collections.html'),
-            title: '我的新闻',
-            chunks: ['collections'],
+            filename: 'list.html',
+            template: resolve(__dirname, 'src/list.html'),
+            title: '官网',
+            chunks: ['list'],
             chunksSortMode: 'manual',
             excludeChunks: ['node_modules'],
             hash: true,
