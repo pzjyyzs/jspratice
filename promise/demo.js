@@ -29,8 +29,24 @@ class MyPromise {
             this.reason = reason;
         }
     }
+
+    then(onFulfilled, onRejected) {
+        if (this.status === FULFILLED) {
+            onFulfilled(this.value)
+        } else if (this.status === REJECTED) {
+            onRejected(this.reason)
+        }
+    }
+
 }
 
 let a = new MyPromise((res, rej) => {
-    res()
+    //res('success');
+    rej('fail')
+})
+
+a.then(value => {
+    console.log(value)
+}, reason => {
+    console.log(reason)
 })
