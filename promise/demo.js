@@ -13,9 +13,11 @@ class MyPromise {
     reason = null;
 
     // 存储成功回调函数
-    onFulfilledCallback = null;
+    // onFulfilledCallback = null;
+    onFulfilledCallback = [];
     // 存储失败回调函数
-    onRejectedCallback = null;
+    // onRejectedCallback = null;
+    onRejectedCallback = [];
 
 
     resolve = (value) => {  
@@ -25,7 +27,10 @@ class MyPromise {
 
             this.value = value;
 
-            this.onFulfilledCallback && this.onFulfilledCallback(value);
+            while (this.onFulfilledCallback.length) {
+                // Array.shift() 取出数组第一个元素，然后（）调用，shift不是纯函数，取出后，数组将失去该元素，直到数组为空
+                this.onFulfilledCallback.shift()(value);
+            }
         }
     }
 
@@ -36,7 +41,9 @@ class MyPromise {
 
             this.reason = reason;
 
-            this.onRejectedCallback && this.onRejectedCallback(reason);
+            while (this.onRejectedCallback.length) {
+                this.onRejectedCallback.shift()(reason);
+            }
         }
     }
 
@@ -46,8 +53,8 @@ class MyPromise {
         } else if (this.status === REJECTED) {
             onRejected(this.reason)
         } else if (this.status === PENDING) {
-            this.onFulfilledCallback = onFulfilled;
-            this.onRejectedCallback = onRejected;
+            this.onFulfilledCallback.push(onFulfilled);
+            this.onRejectedCallback.push(onRejected);
         }
     }
 
@@ -61,7 +68,16 @@ let a = new MyPromise((res, rej) => {
 })
 
 a.then(value => {
+    console.log(1)
     console.log(value)
-}, reason => {
-    console.log(reason)
+})
+
+a.then(value => {
+    console.log(2)
+    console.log(value)
+})
+
+a.then(value => {
+    console.log(3)
+    console.log(value)
 })
