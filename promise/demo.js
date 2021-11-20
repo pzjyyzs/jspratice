@@ -48,36 +48,48 @@ class MyPromise {
     }
 
     then(onFulfilled, onRejected) {
-        if (this.status === FULFILLED) {
-            onFulfilled(this.value)
-        } else if (this.status === REJECTED) {
-            onRejected(this.reason)
-        } else if (this.status === PENDING) {
-            this.onFulfilledCallback.push(onFulfilled);
-            this.onRejectedCallback.push(onRejected);
-        }
+
+        const promise2 = new MyPromise((reslove, reject) => {
+            if (this.status === FULFILLED) {
+                const x = onFulfilled(this.value);
+                resolvePromise(x, reslove, reject);
+            } else if (this.status === REJECTED) {
+                onRejected(this.reason)
+            } else if (this.status === PENDING) {
+                this.onFulfilledCallback.push(onFulfilled);
+                this.onRejectedCallback.push(onRejected);
+            }
+        })
+        
+        return promise2;
     }
+
 
 }
 
+function resolvePromise(x, reslove, reject) {
+    if (x instanceof MyPromise) {
+        x.then(reslove, reject)
+    } else {
+        reslove(x)
+    }
+}
+
 let a = new MyPromise((res, rej) => {
-    setTimeout(() => {
+    //setTimeout(() => {
         res('success');
-    }, 300)
+    //}, 300)
    /*  rej('fail') */
 })
 
 a.then(value => {
     console.log(1)
     console.log(value)
-})
-
-a.then(value => {
+    return value
+}).then(value => {
     console.log(2)
     console.log(value)
-})
-
-a.then(value => {
+}).then(value => {
     console.log(3)
     console.log(value)
 })
