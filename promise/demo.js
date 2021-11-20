@@ -53,6 +53,9 @@ class MyPromise {
 
     then(onFulfilled, onRejected) {
 
+        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+        onRejected = typeof onRejected === 'function' ? onRejected : reason => {throw reason};
+
         const promise2 = new MyPromise((reslove, reject) => {
             if (this.status === FULFILLED) {
 
@@ -102,7 +105,21 @@ class MyPromise {
         return promise2;
     }
 
+    static reslove (parameter) {
+        if (parameter instanceof MyPromise) {
+            return parameter
+        }
 
+        return new MyPromise(reslove => {
+            reslove(parameter)
+        });
+    }
+
+    static reject (reason) {
+        return new MyPromise((resolve, reject) => {
+            reject(reason);
+        })
+    }
 }
 
 function resolvePromise(promise2, x, reslove, reject) {
