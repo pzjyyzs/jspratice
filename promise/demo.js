@@ -65,10 +65,37 @@ class MyPromise {
                     }
                 })
             } else if (this.status === REJECTED) {
-                onRejected(this.reason)
+
+                queueMicrotask(() => {
+                    try {
+                        const x = onRejected(this.reason);
+                        resolvePromise(promise2, x, reslove, reject)
+                    } catch (error) {
+                        reject(error)
+                    }
+                })
+                
             } else if (this.status === PENDING) {
-                this.onFulfilledCallback.push(onFulfilled);
-                this.onRejectedCallback.push(onRejected);
+
+                this.onFulfilledCallback.push(() => {
+                    try {
+                        const x = onFulfilled(this.value);
+                        resolvePromise(promise2, x, reslove, reject);   
+                    } catch (error) {
+                        reject(error)
+                    }
+                });
+
+                this.onRejectedCallback.push(() => {
+                    queueMicrotask(() => {
+                        try {
+                            const x = onRejected(this.reason);
+                            resolvePromise(promise2, x, reslove, reject)
+                        } catch (error) {
+                            reject(error)
+                        }
+                    })
+                });
             }
         })
         
