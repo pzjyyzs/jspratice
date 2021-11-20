@@ -5,7 +5,11 @@ const REJECTED = 'rejected';
 
 class MyPromise {
     constructor(excutor) {
-        excutor(this.resolve, this.reject)
+        try {
+            excutor(this.resolve, this.reject)
+        } catch (error) {
+            this.reject(error);
+        }
     }
 
     status = PENDING;
@@ -53,8 +57,12 @@ class MyPromise {
             if (this.status === FULFILLED) {
 
                 queueMicrotask(() => {
-                    const x = onFulfilled(this.value);
-                    resolvePromise(promise2, x, reslove, reject);
+                    try {
+                        const x = onFulfilled(this.value);
+                        resolvePromise(promise2, x, reslove, reject);
+                    } catch (error) {
+                        reject(error)
+                    }
                 })
             } else if (this.status === REJECTED) {
                 onRejected(this.reason)
