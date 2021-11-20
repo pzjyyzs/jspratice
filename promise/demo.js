@@ -51,8 +51,11 @@ class MyPromise {
 
         const promise2 = new MyPromise((reslove, reject) => {
             if (this.status === FULFILLED) {
-                const x = onFulfilled(this.value);
-                resolvePromise(x, reslove, reject);
+
+                queueMicrotask(() => {
+                    const x = onFulfilled(this.value);
+                    resolvePromise(promise2, x, reslove, reject);
+                })
             } else if (this.status === REJECTED) {
                 onRejected(this.reason)
             } else if (this.status === PENDING) {
@@ -67,7 +70,11 @@ class MyPromise {
 
 }
 
-function resolvePromise(x, reslove, reject) {
+function resolvePromise(promise2, x, reslove, reject) {
+    if (promise2 === x) {
+        return reject(new TypeError('Chaining cycle detected for promise #<Promise>'));
+    }
+
     if (x instanceof MyPromise) {
         x.then(reslove, reject)
     } else {
