@@ -1,4 +1,5 @@
 .DS_Store
 /news/node_modules/
+/waterfull/serve/node_modules
 dist/
 npm-debug.log

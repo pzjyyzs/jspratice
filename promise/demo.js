@@ -200,3 +200,15 @@ a.then(value => {
     console.log(3)
     console.log(value)
 })
+
+let task1 = () => new Promise((reslove, reject) => setTimeout(() => { reject('第一扇门关了') }, 3000))
+
+let task2 = () => new Promise((reslove, reject) => setTimeout(() => { reject('第二扇门关了') }, 4000))
+
+let task3 = () => new Promise((reslove, reject) => setTimeout(() => { reslove('第二扇门开了') }, 5000))
+
+Promise.all([
+    task1().then(() => ({status: 'ok'}), () => ({status: 'not ok'})), 
+    task2().then(() => ({status: 'ok'}), () => ({status: 'not ok'})), 
+    task3().then(() => ({status: 'ok'}), () => ({status: 'not ok'}))
+]).then((val) => console.log(val), (reason) => console.log(reason))
