@@ -1,5 +1,6 @@
 .DS_Store
 /news/node_modules/
 /waterfull/serve/node_modules
+/promise/promise-demo/node_modules
 dist/
 npm-debug.log
