@@ -88,13 +88,13 @@ describe('Promise', () => {
             reslove(233);
             reslove(2333)
             setTimeout(() => {
-                assert(promise.state === 'fulfilled');
+                assert(promise.status === 'fulfilled');
                 assert.isTrue(succeed.calledOnce);
                 assert(succeed.calledWith(233));
                 done();
             }, 0);
         })
-        promise.then(succeed);
+        promise.then(succeed, null);
     })
     it('2.2.3', done => {
         const fail = sinon.fake();
@@ -103,7 +103,7 @@ describe('Promise', () => {
             reject(233);
             reject(2333)
             setTimeout(() => {
-                assert(promise.state === 'rejected');
+                assert(promise.status === 'rejected');
                 assert.isTrue(fail.calledOnce);
                 assert(fail.calledWith(233));
                 done();
@@ -116,7 +116,7 @@ describe('Promise', () => {
         const promise = new Promise((reslove: any) => {
             reslove();
         });
-        promise.then(succeed);
+        promise.then(succeed, null);
         assert.isFalse(succeed.called);
         setTimeout(() => {
             assert.isTrue(succeed.called);
@@ -143,16 +143,16 @@ describe('Promise', () => {
             "use strict";
             assert(this === undefined);
             done();
-        })
+        }, null)
     })
     it('2.2.6  then 可以在同一个promise里被多次调用', done => {
         const promise = new Promise((reslove: any) => {
             reslove();
         })
         const callbacks = [sinon.fake(), sinon.fake(), sinon.fake()];
-        promise.then(callbacks[0]);
-        promise.then(callbacks[1]);
-        promise.then(callbacks[2]);
+        promise.then(callbacks[0], null);
+        promise.then(callbacks[1], null);
+        promise.then(callbacks[2], null);
         setTimeout(() => {
             assert(callbacks[0].called);
             assert(callbacks[1].called);
@@ -161,5 +161,23 @@ describe('Promise', () => {
             assert(callbacks[2].calledAfter(callbacks[1]));
             done();
         }, 0);
+    })
+    it('2.2.7', () => {
+        const promise = new Promise((reslove: any) => {
+            reslove();
+        })
+        const promise2: any = promise.then(() => {}, () => {});
+        assert(promise2 instanceof Promise)
+    })
+    it('2.2.7.1 如果 then(success, fail) 中的success 返回一个x, 运行[[Reslove]](promise2, x)', done => {
+        const promise1 = new Promise((reslove: any) => {
+            reslove();
+        });
+        promise1
+        .then(() => "success", () => {})
+        .then((result: any) => {
+            assert.equal(result, 'success');
+            done();
+        }, null);
     })
 })
