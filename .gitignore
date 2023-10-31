@@ -3,5 +3,6 @@
 /waterfull/serve/node_modules
 /promise/promise-demo/node_modules
 dist/
-/node/todo/node_modules
+/node/**/node_modules
 npm-debug.log
+/
