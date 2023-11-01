@@ -26,8 +26,10 @@ const publicDir = p.relative(__dirname, 'public');
 }); */
 
 server.on('request', (request: IncomingMessage, response: ServerResponse) => {
-   const { method, url, headers } = request;
-   switch(url) {
+   const { method, url: path, headers } = request;
+   if (path) {
+    const parse = path.split('?')[0]
+    switch(parse) {
         case '/index.html':
             response.setHeader('Content-Type', 'text/html;charset=utf-8');
             fs.readFile(p.resolve(publicDir, 'index.html'), (error, data) => {
@@ -49,6 +51,7 @@ server.on('request', (request: IncomingMessage, response: ServerResponse) => {
                 response.end(data.toString());
             })
             break
+    }
    }
 });
 
